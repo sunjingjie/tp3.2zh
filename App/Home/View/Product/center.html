@@ -1,0 +1,245 @@
+<link rel="stylesheet" type="text/css" href="css/base_ducvy.css" />
+<script type="text/javascript" src="js/jQuery.1.8.2.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<title>产品中心详情</title>
+	<!--banner_ad 横幅轮播图-->
+	<div class="banner_ad">
+
+		<div class="banner" id="banner">
+			<div class="pages" data-scro="list">
+				<ul>
+					<volist name="banner" id="vo">
+					<li class="item" style="left: 0px;"><img style=" width:1423px; height:352px;"src="<if condition="($vo.image_path eq '')">__ROOT__/public/uploads/timg.jpg
+									<else />__ROOT__/{$vo.image_path}
+									</if>" /></li></volist>
+				</ul>
+			</div>
+
+			<div class="controler" data-scro="controler">
+				<b class="down"></b> <b></b> <b></b>
+			</div>
+		</div>
+
+
+	</div>
+
+
+	<!--页面内容-->
+	<div class="content">
+		<!--内容背景为第一种的时候 -->
+		<div class="content_type_one">
+
+			<!--为内容里面的内容-->
+			<div class="content_body">
+				<div class="background_orange"></div>
+				<div class="background_gray"></div>
+				<div class="kongzhi">
+					<!--侧导航-->
+					<div class="sidebar">
+						<div class="sidebar_top">
+
+
+							<div class="sidebar_title">
+								<p class="chinese">产品中心</p>
+								<p class="english">Product Center</p>
+							</div>
+
+
+							<div class="sidebar_list">
+								<ul>
+									<volist name="list" id="vo">
+									<if condition="$vo.pid eq 8"><a href="__APP__/Product/cate/cate/{$vo.id}" <if condition="$vo.id eq $cate_id"> class="list_a_inthis"</if> ><li <if condition="$vo.id eq $cate_id"> class="list_inthis" </if> >{$vo.name}</li></a></if></volist>
+								</ul>
+
+							</div>
+
+							<div class="sidebar_title sidebar_title_margin">
+								<p class="chinese">联系我们</p>
+								<p class="english">contact us</p>
+							</div>
+
+
+
+						</div>
+
+
+						<div class="sidebar_bottom">
+							<p class="onlinefirst">在线客服一：QQ{$about.q}</p>
+							<p class="onlinesecend">在线客服二：QQ{$about.qq}</p>
+							<p class="telphone">联系电话：{$about.tel}</p>
+							<p class="email">邮箱：{$about.email}</p>
+						</div>
+
+
+
+					</div>
+
+					<!--内容的右侧-->
+					<div class="content_body_right">
+						<div class="right_title">
+							<span class="titlename">产品中心</span> 
+                            <span class="current_location">当前位置>产品中心>购买产品</span> 
+                            <span class="clear_float"></span>
+						</div>
+						<div class="product_center_details">
+							<div class="product_center_details_top">
+								<div class="cloth_show">
+									<img src="<if condition="($data.image_path eq '')">__ROOT__/public/uploads/timg.jpg
+									<else />__ROOT__/{$data.image_path}
+									</if>" width="332" height="448"/>
+									<p>{$data.name}</p>
+								</div>
+								<div class="cloth_info1">
+									<p class="cloth_name">{$data.name}</p>
+									<div class="price">
+										<p>
+											价格 <span class="ori_price">￥{$data.price}</span>
+										</p>
+										<p>
+											<span class="pre_price_text">促销价</span><span class="pre_price">￥{$data.price_c}</span>
+										</p>
+									</div>
+									<!--freight_info 运费信息-->
+									<p class="freight_info">
+										<span class="freight">运费</span> <span class="address">广东深圳</span>
+										至 <span class="toaddress">南宁</span> 快递: <span> 0.00</span>
+									</p>
+									<p class="sales_comments">
+										月销量 <span class="sales">{$data.xsl}</span> 累计评价<span class="comments">{$data.pj}</span>
+									</p>
+									<!--- 尺码form表单   .border_red 加边框线-->
+									<div class="size_form">
+										<form method="post" action="__APP__/User/zhu">
+                                                                                        <input name="id" type="hidden"  value="{$data.id}"/>
+
+											<p>
+												<a class="text">厚薄 </a>
+												<!--<span status="on" class="thickness inthis">常规</span>-->
+												<span status="on" class="thickness">常规</span>
+                                                <span status="on" class="thickness">超厚</span> 
+                                                <input name="name" type="hidden"  value="{$data.name}"/>
+											</p>
+											<p>
+												<a class="text">尺码 </a> <span status="on" class="size">S</span>
+												<span status="on" class="size">M</span> 
+                                                <span status="on" class="size">L</span> 
+                                                <span status="on" class="size">XL</span>
+												<input name="price" type="hidden" value="{$data.price}" />
+
+                                                <input name="price_c" type="hidden"  value="{$data.price_c}"/>
+											</p>
+											<p>
+												<a class="text">颜色分类</a> <span status="on" class="color">黑色</span>
+												<input name="thumb_path" type="hidden" value="{$data.thumb_path}" />
+											</p>
+											<p>
+												<a class="text">数量</a> <span status="on" class="quantity"><input
+													type="number" class="input_quantity" name="num" value="1" id="num" /></span>
+											</p>
+
+
+											<!--这里的两个跳转作为功能进行JS判断。当点击立即购买的时候跳转到某个action 判断。当点击加入购物车的时候跳转到某个action -->
+											<p>
+												<input type="submit" value="立即购买" class="submit1" /> 
+                                                <input type="submit" value="加入购物车" class="submit2" /></span>
+											</p>
+										</form>
+
+									</div>
+								</div>
+								<div class="clear_float"></div>
+							</div>
+							<!--产品中心的底部-->
+							<div class="product_center_details_bottom">
+
+								<div class="product_info2">
+									<p>
+										<span class="product_ref">产品参数：</span>
+									</p>
+
+									<p>
+										<span>材质成分:{$data.cz}</span> 
+                                        <span>销售渠道类型:{$data.xsqd}</span> 
+                                        <span>风格:{$data.fg}</span> 
+											
+									</p>
+
+
+									<p>
+										<span>货号: {$data.hh}</span> 
+                                        <span>服装版型: {$data.bx}</span> 
+                                        <span>厚薄:{$data.hd}</span>
+
+									</p>
+
+									<p>
+										<span>品牌: {$data.pp}</span> 
+                                        <span>组合形式: {$data.zhxs}</span> 
+                                        <span>衣长:{$data.yc}</span>
+
+									</p>
+
+
+									<p>
+										<span>袖长: {$data.xc}</span> 
+                                        <span>领子: {$data.lz}</span>
+                                        <span>袖型: {$data.xx}</span>
+									</p>
+
+
+									<p>
+										<span>衣门襟: {$data.yms}</span> 
+                                        <span>图案: {$data.ta}</span> 
+                                        <span>流行元素/工艺:{$data.lx}</span>
+
+									</p>
+
+
+									<p>
+										<span>适用年龄: {$data.nl}</span>
+                                        <span>年份季节: {$data.year}</span> 
+                                        <span>颜色分类: {$data.color}</span>
+									</p>
+
+									<p>
+										<span>尺码: {$data.cm}</span>
+									</p>
+
+
+								</div>
+
+
+
+							</div>
+
+
+						</div>
+
+
+
+						上一个：<if condition="$next eq '' "> 
+没有上一个
+                        <else />
+<a href="__APP__/Product/center/id/{$next.id}/cate/{$cate_id}">{$next.name}</a>;</if>
+                        下一个：<if condition="$prev eq '' "> 没有下一个
+                        <else /><a href="__APP__/Product/center/id/{$prev.id}/cate/{$cate_id}">{$prev.name}</a>;</if>
+
+
+
+
+
+					</div>
+
+					<div class="clear_float"></div>
+
+
+
+				</div>
+			</div>
+
+
+		</div>
+
+
+	</div>
+

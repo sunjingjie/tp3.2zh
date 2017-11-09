@@ -1,0 +1,56 @@
+ <div class="templatemo-content-container"><h3><a href="__APP__/Category/add">分类添加</a></h3>
+          <div class="templatemo-content-widget no-padding">
+            <div class="panel panel-default table-responsive">
+              <table class="table table-striped table-bordered templatemo-user-table">
+                <thead>
+                  <tr>
+                    <td><a href="" class="white-text templatemo-sort-by">分类编号 <span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">分类名称 <span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">父ID <span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">链接模块 <span class="caret"></span></a></td>
+
+                    <td><a href="" class="white-text templatemo-sort-by">前/后台 <span class="caret"></span></a></td>
+                    
+                    <td>Edit</td>
+                    <td>Delete</td>
+                  </tr>
+                </thead>
+                <tbody><foreach name="data" item="v">
+                  <tr>
+                    <td>{$v.id}</td>
+                    <td>{$v.name}</td>
+                    <td>{$v.pid}</td>   <td>{$v.url}</td>  
+                    <td><if condition="($v.rideo eq 0)"> 后台
+                    <elseif condition="$v.rideo eq 3"/>前台子栏目
+
+                    <else /> 前台
+                    </if>
+                    </td> 
+                             
+                    <td><a href="__APP__/Category/update/id/{$v.id}" class="templatemo-edit-btn">Edit</a></td>
+                    <td><a href="__APP__/Category/delete/id/{$v.id}" class="templatemo-edit-btn" onclick="return del();">Delete</a></td>
+                  </tr></foreach>
+                 
+                </tbody>
+              </table>    
+            </div>                          
+          </div>  
+          <div class="pagination-wrap">
+            <ul class="pagination">
+            <!--  {$page}-->
+              
+            </ul>
+          </div>  
+          		   <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>        <!-- jQuery -->
+
+              <script>
+    function del(){
+		if(confirm("确定要删除该分类或该分类后的子类？"))
+		{
+			return true;}
+			else{
+				return false;
+				}
+		}
+    
+    </script>		            

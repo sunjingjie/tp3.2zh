@@ -1,0 +1,274 @@
+<link rel="stylesheet" type="text/css" href="css/base_ducvy.css" />
+<script type="text/javascript" src="js/jQuery.1.8.2.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<title>联系我们</title>
+<!--banner_ad 横幅轮播图-->
+	<div class="banner_ad">
+
+		<div class="banner" id="banner">
+			<div class="pages" data-scro="list">
+				<ul><volist name="banner" id="vo">
+					<li class="item" style="left: 0px;"><img style=" width:1423px; height:352px;"src="<if condition="($vo.image_path eq '')">__ROOT__/public/uploads/timg.jpg
+									<else />__ROOT__/{$vo.image_path}
+									</if>" /></li>
+					</volist>
+				</ul>
+			</div>
+
+			<div class="controler" data-scro="controler">
+				<b class="down"></b> <b></b> <b></b>
+			</div>
+		</div>
+
+
+	</div>
+
+
+	<!--页面内容-->
+	<div class="content">
+		<!--内容背景为第一种的时候 -->
+		<div class="content_type_one">
+
+			<!--为内容里面的内容-->
+			<div class="content_body">
+				<div class="background_orange"></div>
+				<div class="background_gray_getcontact_us"></div>
+				<div class="kongzhi">
+					<!--侧导航-->
+					<div class="sidebar">
+						<div class="sidebar_top">
+
+
+							<div class="sidebar_title">
+								<p class="chinese">给我留言</p>
+								<p class="english">Give me a message</p>
+							</div>
+
+
+							<div class="sidebar_list">
+
+								<ul>
+									<a  class="list_a_inthis"><li class="list_inthis">留言中</li></a>
+									
+                                    
+									<span class="clear_float"></span>
+
+								</ul>
+
+							</div>
+
+							<div class="sidebar_title sidebar_title_margin_getcontact_us ">
+								<p class="chinese">联系我们</p>
+								<p class="english">contact us</p>
+							</div>
+
+
+
+						</div>
+
+
+						 <volist name="about" id="vo">
+						<div class="sidebar_bottom">
+							<p class="onlinefirst">在线客服一：QQ{$vo.q}</p>
+							<p class="onlinesecend">在线客服二：QQ{$vo.qq}</p>
+							<p class="telphone">联系电话：{$vo.tel}</p>
+							<p class="email">邮箱：{$vo.email}</p>
+						</div>
+                        </volist>
+
+
+
+					</div>
+
+					<!--内容的右侧-->
+					<div class="content_body_right">
+						<div class="right_title">
+							<span class="titlename">给我留言</span> <span
+								class="current_location">当前位置>联系我们</span> <span
+								class="clear_float"></span>
+						</div>
+
+						<div class="getcontact_us">
+							<form method="post" action="">
+								<p >
+									<span>留言标题：</span><input type="text" name="title" id="title" required="required"/><a>*</a><p   style=" margin-left:100px; margin-top:10px;height:10px; line-height:10px;" id="info9"  >
+								</p>
+								<p  class="text_area">
+									<span>留言内容：</span><textarea class="message_content" id="text2" name="content" required="required"> </textarea><a>*</a>
+                                    <p id="info4" style=" margin-left:100px; margin-top:10px;height:10px; line-height:10px;" ></p>
+                                    <h1 class="clear_float"></h1>
+								</p>
+								<p>
+									<span>客户名称：</span><input type="text" name="name" id="name" required="required"  /><a>*</a><p   style=" margin-left:100px; margin-top:10px;height:10px; line-height:10px;" id="info1"  ></p>
+								</p>
+								<p>
+									<span>联系电话：</span><input type="text" id="tel" name="tel"  /><p   style=" margin-left:100px; margin-top:10px;height:10px; line-height:10px;" id="info2"  ></p>
+								</p>
+								<p>
+									<span>QQ/MSN：</span><input type="text" id="qq" name="qq" /><p   style=" margin-left:100px; margin-top:10px;height:10px; line-height:10px;" id="info10"  ></p>
+								</p>
+                                <p> <span >验证码：</span><input class="form-control"  type="code" id="code" name="code"  required  style="width:100px; height:30px;" /> 
+<!--              <img src="{:U('Admin/User/verify','','')}" id="code"/>
+-->              &nbsp;&nbsp;<img src="__APP__/Login/verify/" id="code"   onClick="this.src='__APP__/Login/verify/'+Math.random(0,1)" />
+
+ 
+  
+  
+  	</p>	<p   style=" margin-left:100px; margin-top:10px;height:10px; line-height:10px;" id="info5"  ></p>
+                                <p class="special">
+									<input type="submit" disabled="disabled" id="submit1"  value="提交" class="submit" />
+								</p>
+
+							</form>
+						</div>
+
+
+
+
+					</div>
+
+					<div class="clear_float"></div>
+
+				</div>
+
+			</div>
+
+
+
+		</div>
+
+
+	</div>
+     <script type="text/javascript">
+	$(function(){
+		var us=0;
+				var qwq=0;
+
+		var uss=0;
+		var tel = 0;
+		var email = 0;
+		var e=0;
+		function userr(){							
+			var hz=/^[\u4e00-\u9fa5]{2,4}$/;
+				if(!hz.test($('#name').val())){
+				$('#info1').html("<font color='red'>&nbsp;姓名必须是长度为2-4个汉字！ </font>");
+								us = 0;				
+				}else{
+					$('#info1').html("<font color='green'>&nbsp;ok</font>");
+												
+					  us = 1;	
+		
+					}
+		    
+		}
+		function usserr(){							
+			var hz=/^[\u4e00-\u9fa5]{2,12}$/;
+				if(!hz.test($('#title').val())){
+				$('#info9').html("<font color='red'>&nbsp;标题必须是长度为2—12个汉字！ </font>");
+								uss = 0;				
+				}else{
+					$('#info9').html("<font color='green'>&nbsp;ok</font>");
+												
+					  uss = 1;	
+		
+					}
+		    
+		}
+	 function tell(){				
+			var hz=/^1[3|4|5|7|8][0-9]{9}$/;
+				if(!hz.test($('#tel').val())){
+				$('#info2').html("<font color='red'>&nbsp;联系方式不正确！ </font>");
+												
+						  tel = 0;
+				}else{
+									$('#info2').html("<font color='green'>&nbsp;ok</font>");
+												
+						 tel = 1;
+		
+					}
+	
+	
+	 }
+	  function qq(){				
+			var hz=/^\d{5,10}$/;
+				if(!hz.test($('#qq').val())){
+				$('#info10').html("<font color='red'>&nbsp;QQ格式不正确！ </font>");
+												
+						  qwq = 0;
+				}else{
+									$('#info10').html("<font color='green'>&nbsp;ok</font>");
+												
+						 qwq = 1;
+		
+					}
+	
+	
+	 }
+	 function emill(){						
+			var hz=/^[\s\S]{0,150}$/;
+				if(!hz.test($('#text2').val())){
+				$('#info4').html("<font color='red'>&nbsp;不允许多于150字！ </font>");
+				
+							 email = 0;					
+	
+					}else{
+									$('#info4').html("<font color='green'>&nbsp;ok</font>");
+																				
+	
+							 email = 1;													
+	
+		
+					}				
+	
+	 }
+	 function code(){
+												var hz=/^\w{4,4}$/;
+			if(!hz.test($('#code').val())){
+			$('#info5').html("<font color='red'>&nbsp;验证码必须为四位！ </font>");
+   	              e=0;
+
+			}else{
+								$('#info5').html("<font color='green'></font>");
+   	              e=1;
+
+	
+				}
+	
+	}
+	  function check(){
+			if(us==1&&tel==1&&email==1&&e==1&&qwq==1&&uss==1){
+				$("#submit1").attr('disabled',false);			
+			}else{
+				$("#submit1").attr('disabled',true);
+			 }
+	   }
+     $('#name').blur(function(){		
+		    userr();
+			check();			
+		 });
+		  $('#qq').blur(function(){		
+		    qq();
+			check();			
+		 });
+		 $('#title').blur(function(){		
+		    usserr();
+			check();			
+		 });
+	$('#tel').blur(function(){	
+	      tell();
+		  check();
+	});
+	$('#text2').blur(function(){
+		  emill();
+		  check();
+		})
+		$('#code').blur(function(){
+		  code();
+		  check();
+		})
+	 
+	 
+	 	  
+})
+		</script>
+

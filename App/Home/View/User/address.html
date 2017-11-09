@@ -1,0 +1,251 @@
+
+<link rel="stylesheet" type="text/css" href="css/base_ducvy.css" />
+<script type="text/javascript" src="js/jQuery.1.8.2.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<title>确定订单和地址</title>
+	<!--页面内容-->
+	<div class="content">
+		<!--内容背景为第二种的时候 -->
+		<div class="content_type_two">
+
+			<!--为内容里面的内容-->
+			<div class="content_body">
+				<div class="background_orange"></div>
+				<div class="background_coffee "></div>
+				<div class="kongzhi">
+					<!--侧导航-->
+					<div class="sidebar">
+						<div class="sidebar_top">
+
+
+							<div class="sidebar_title">
+								<p class="chinese">会员中心</p>
+								<p class="english">Brand introduction</p>
+							</div>
+
+
+							<div class="sidebar_list ">
+
+								<ul>
+									<!--<a href="__APP__/User/index" class="list_a_inthis"><li class="list_inthis">个人信息</li></a>
+									<a href="__APP__/User/update"><li>个人资料修改/查看</li></a>
+									<a href="__APP__/User/updatemima"><li>修改密码</li></a>
+									<a href="__APP__/User/buy"><li>购买记录</li></a>-->
+									<a href="__APP__/User/buybus"><li>购物车</li></a>
+									<a href="__APP__/User/dindan">
+										<li>确认订单</li>
+									</a>
+									<a href="__APP__/User/address">
+										<li>收货地址</li>
+									</a>
+									<span class="clear_float"></span>
+								</ul>
+
+							</div>
+
+
+
+
+
+						</div>
+
+
+
+
+
+					</div>
+					<!--内容的右侧-->
+					<div class="content_body_right">
+						<div class="right_title">
+							<span class="titlename">购买记录</span> <span
+								class="current_location">当前位置 >会员中心</span> <span
+								class="clear_float"></span>
+						</div>
+
+						<div class="makesure_order_add">
+							<p class="guide">
+								<a>查看购物车</a><a class="inthis">填写和确认地址订单</a><a>提交订单成功</a>
+							</p>
+
+							<form method="post" action="__APP__/Order/pay">
+							<input type="hidden" name="id"
+ value="{$result.user_id}" />								<div class="sure_add">
+									<p class="address_text">确认收货地址</p>
+
+
+									<div class="address_box first">
+										<div class="show">
+											<input type="radio" name="makesure_address" />
+                                            <span>广西省 南宁市 清秀区 民族大道泰安大厦金座38-1</span>（<span>李女士</span> 收）<span>23545646435士</span>
+										</div>
+
+										<div class="hidden">
+											<p>
+												<span class="to_smwhere">寄送至</span>
+                                                <input type="radio"	id="address1" name="makesure_address" />
+                                                <span>广西省	南宁市 清秀区 民族大道泰安大厦金座38-1</span>
+											</p>
+											<p class="user_info">
+												（<span>李女士</span> 收） <span>23545646435</span>
+											</p>
+											<p class="change_address">
+												<a>修改本地址</a>
+											</p>
+										</div>
+									</div>
+
+
+									<div class="address_box">
+										<div class="show">
+											<input type="radio" name="makesure_address" />
+                                            <span>广西省	南宁市 清秀区 民族大道泰安大厦金座38-1</span>（<span>李女士</span> 收）<span>23545646435士</span>
+										</div>
+
+										<div class="hidden">
+											<p>
+												<span class="to_smwhere">寄送至</span>
+                                                <input type="radio" id="address2" name="makesure_address" />
+                                                <span>广西省 南宁市 清秀区 民族大道泰安大厦金座38-1</span>
+											</p>
+											<p class="user_info">
+												（<span>李女士</span> 收） <span>23545646435</span>
+											</p>
+											<p class="change_address">
+												<a>修改本地址</a>
+											</p>
+										</div>
+									</div>
+
+
+
+
+
+
+
+
+									<p class="user_other_address">
+										<a href="">使用其他地址</a>
+									</p>
+								</div>
+
+								<div class="order_info">
+									<p class="info_text">确认订单信息</p>
+									<p class="title">
+										<span class="pro_show">宝贝</span>
+                                        <span class="price">单价</span>
+                                        <span class="number">数量</span>
+                                        <span class="subtotal">小计（元）</span>
+									</p>
+
+									<div class="list_info_content"><volist name="sess" id="vo">
+										<div class="content_left">
+											<div class="img">
+												<img src="images/goumaijilu_img.jpg" />
+											</div>
+											<div class="info_text">2015秋新款大码长袖女装打底修身显瘦绣花T恤女士镶钻女生上衣潮</div>
+											<span class="price">￥551</span> 
+                                            <span class="numbers_override" id="makesure_page">
+                                            <span class="reduce">-</span>
+                                                <input value="1" min="1" type="text" />
+                                                <span class="add">+</span>
+                                            </span> 
+                                            <span class="clear_float"></span>
+										</div></volist>
+
+										<div class="content_mid">
+
+											<a class="curr_price">270</a> 
+                                            <select>
+												<option>以省200元;卖家促销</option>
+												<option>以省200元;卖家促销</option>
+												<option>以省200元;卖家促销</option>
+											</select>
+										</div>
+
+										<div class="clear_float"></div>
+
+
+									</div>
+
+
+									<p class="givemess_toseller">
+										给卖家留言：<input type="text" />
+									</p>
+									<p class="discount">
+										店铺优惠： 
+                                        <select class="s_discount">
+											<option>买满一百减十</option>
+											<option>买满一百减十</option>
+											<option>买满一百减十</option>
+										</select>
+
+									</p>
+
+
+									<p class="discount">
+										运送方式: 
+                                        <select>
+											<option>普通配送&nbsp;快递 免邮</option>
+											<option>普通配送&nbsp; 快递 免邮</option>
+											<option>普通配送&nbsp; 快递 免邮</option>
+										</select>
+									</p>
+									<p class="total">
+										店铺合计：<span>￥<a>270.00</a></span>
+									</p>
+									<p class="submit">
+										<input type="submit" value="提交订单" />
+									</p>
+
+
+
+
+								</div>
+
+
+							</form>       
+
+
+
+
+
+
+
+						</div>
+
+
+
+
+					</div>
+
+					<div class="clear_float"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+				</div>
+
+			</div>
+
+
+		</div>
+
+
+	</div>
+
+
+
+
+
+	

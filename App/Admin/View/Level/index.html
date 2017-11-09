@@ -1,0 +1,32 @@
+ <div class="templatemo-content-container"><h3><a href="__APP__/Level/add">权限添加</a></h3>
+          <div class="templatemo-content-widget no-padding">
+            <div class="panel panel-default table-responsive">
+              <table class="table table-striped table-bordered templatemo-user-table">
+                <thead>
+                  <tr>
+                    <td><a href="" class="white-text templatemo-sort-by">权限ID <span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">权限名称 <span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">发布时间  <span class="caret"></span></a></td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+                  </tr>
+                </thead>
+                <tbody><foreach name="data" item="v">
+                  <tr>
+                    <td>{$v.id}</td>
+                    <td>{$v.name}</td>
+                    <td>{:date('Y-m-d',$v['time'])}</td>					
+                    <td><a href="__APP__/Level/update/id/{$v.id}" class="templatemo-edit-btn">Edit</a></td>
+                    <td><a href="__APP__/Level/delete/id/{$v.id}" class="templatemo-edit-btn">Delete</a></td>
+                  </tr></foreach>
+                 
+                </tbody>
+              </table>    
+            </div>                          
+          </div>  
+          <div class="pagination-wrap">
+            <ul class="pagination">
+              {$page}
+              
+            </ul>
+          </div>                  

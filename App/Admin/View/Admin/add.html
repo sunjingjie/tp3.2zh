@@ -1,0 +1,157 @@
+
+        <div class="templatemo-content-container">
+          <div class="templatemo-content-widget white-bg">
+            <h2 class="margin-bottom-10">管理员添加</h2>
+            <p>Here goes another form and form controls.</p>
+            <form action="" class="templatemo-login-form" method="post" enctype="multipart/form-data">
+              <div class="row form-group">
+                         
+              </div>
+              <div class="row form-group">
+                <div class="col-lg-6 col-md-6 form-group"> 
+                  <label class="control-label templatemo-block">权限等级</label>                 
+                  <select class="form-control"  name="level_id">
+                  <volist name="qwe" id="vo">
+                    <option value="{$vo.id}">{$vo.name}</option>  
+                  </volist>                 
+                  </select>
+                </div>
+               
+              </div>
+              <div class="row form-group">
+                <div class="col-lg-6 col-md-6 form-group"> 
+                 <label for="inputNewPassword">用户名</label>
+                    <input id="gg" type="text"  name="username" required="required" placeholder="用户名" onclick="this.value=&quot;&quot"  class="form-control"><span id="info1" style=" float:left; display:block; padding-top:5px; height:10px; line-height:10px; margin-left:150px;"></span>
+                </div>
+               
+              </div>
+               <div class="row form-group">
+                <div class="col-lg-6 col-md-6 form-group"> 
+                 <label for="inputNewPassword">密码</label>
+                    <input id="tt" type="password"   name="password" required="required" placeholder="密码"  class="form-control" ><span id="info2" style=" float:left; display:block; padding-top:5px; height:10px; line-height:10px; margin-left:150px;" ></span>
+                </div>
+               
+              </div>
+             
+           
+              
+     
+              <div class="form-group text-right">
+                
+                <input  type="submit" id="submit" style="width:105px;" value="Submit"class="templatemo-white-button"/>
+                 <input  type="reset" style="width:105px;" value="Reset"class="templatemo-white-button"/>
+              </div>                           
+            </form>
+          </div>
+		   <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>        <!-- jQuery -->
+    <script type="text/javascript" src="js/bootstrap-filestyle.min.js"></script>  <!-- http://markusslima.github.io/bootstrap-filestyle/ -->
+    <script type="text/javascript" src="js/templatemo-script.js"></script>        <!-- Templatemo Script -->
+   <script>
+
+
+$(function(){
+	var u=0;
+	var b=0;
+	var c=0;
+	var d=0;
+	var e=0;
+
+
+$('#gg').blur(function(){
+   var account=$('#gg').val();
+
+
+
+if(account.length<5 ||account.length>=16){
+
+$('#info1').html("<font color='red' >&nbsp;用户名长度必须在5-16位之间 </font>");
+   u=0;
+ return flase;
+
+}
+
+$.post('__APP__/Admin/checkAccount',{'account':account},function(data){
+
+                 if(data==1){
+
+   $('#info1').html("<font color='red'>&nbsp;该用户名已注册！ </font>");   u=0;
+}else{
+
+
+$('#info1').html("<font color='green'>&nbsp;ok </font>");   u=1;
+}
+
+ })})
+
+
+				
+	function ttt(){
+		var hz=/^\w{8,16}$/;
+			if(!hz.test($('#tt').val())){
+			$('#info2').html("<font color='red'>&nbsp;密码为除汉字外的8-16个字节！ </font>");
+   	              c=0;
+
+			}else{
+								$('#info2').html("<font color='green'>&nbsp;ok</font>");
+   	              c=1;
+
+				}
+	                                }
+									function tttt(){
+                if ($('#ttt').val()!=$('#tt').val()) {
+                 $('#info4').html("<font color='red'>&nbsp;与输入密码不符！ </font>");   
+   	              d=0;
+                                       }
+				 else{
+								$('#info4').html("<font color='green'>&nbsp;ok</font>");
+   	              d=1;
+
+}
+									}
+									function code(){
+												var hz=/^\w{4,4}$/;
+			if(!hz.test($('#code').val())){
+			$('#info5').html("<font color='red'>&nbsp;验证码必须为四位！ </font>");
+   	              e=0;
+
+			}else{
+								$('#info5').html("<font color='green'></font>");
+   	              e=1;
+
+	
+				}
+	
+	}
+									
+									function check(){
+										if(u==1&&c==1){
+										$('#submit').attr('disabled',false);
+										}else{
+
+										$('#submit').attr('disabled',true);
+											}}
+									    
+										
+										$('#gg').keyup(function(){
+											us();
+											check();
+											})
+										$('#ggg').keyup(function(){
+											tt();
+											check();})
+			                            $('#tt').keyup(function(){	
+										    ttt();
+											check();})	
+		                             	$('#ttt').keyup(function(){
+											tttt();
+											check();})
+										$('#code').keyup(function(){
+											code();
+											check();})
+															
+
+										
+										
+									
+			
+                                     })</script>      

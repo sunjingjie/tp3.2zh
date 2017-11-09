@@ -1,0 +1,150 @@
+<link rel="stylesheet" type="text/css" href="css/base_ducvy.css" />
+<script type="text/javascript" src="js/jQuery.1.8.2.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<title>产品中心</title>
+<!--banner_ad 横幅轮播图-->
+	<div class="banner_ad">
+
+		<div class="banner" id="banner">
+			<div class="pages" data-scro="list">
+				<ul><volist name="banner" id="vo">
+					<li class="item" style="left: 0px;"><img style=" width:1423px; height:352px;"src="<if condition="($vo.image_path eq '')">__ROOT__/public/uploads/timg.jpg
+									<else />__ROOT__/{$vo.image_path}
+									</if>" /></li>
+					</volist>
+				</ul>
+			</div>
+
+			<div class="controler" data-scro="controler">
+				<b class="down"></b> <b></b> <b></b>
+			</div>
+		</div>
+
+
+	</div>
+
+
+	<!--页面内容-->
+	<div class="content">
+		<!--内容背景为第一种的时候 -->
+		<div class="content_type_one">
+
+			<!--为内容里面的内容-->
+			<div class="content_body">
+				<div class="background_orange"></div>
+				<div class="background_gray"></div>
+				<div class="kongzhi">
+					<!--侧导航-->
+					<div class="sidebar">
+						<div class="sidebar_top">
+
+
+							<div class="sidebar_title">
+								<p class="chinese">产品中心</p>
+								<p class="english">Product Center</p>
+							</div>
+
+
+							<div class="sidebar_list">
+								<ul>
+								<volist name="list" id="vo">
+									<if condition="$vo.pid eq 8"><a href="__APP__/Product/cate/cate/{$vo.id}" <if condition="$vo.id eq $cate_id"> class="list_a_inthis"</if> ><li <if condition="$vo.id eq $cate_id"> class="list_inthis" </if> >{$vo.name}</li></a></if></volist>
+								</ul>
+
+							</div>
+
+							<div class="sidebar_title sidebar_title_margin">
+								<p class="chinese">联系我们</p>
+								<p class="english">contact us</p>
+							</div>
+
+
+
+						</div>
+
+
+						 <volist name="about" id="vo">
+						<div class="sidebar_bottom">
+							<p class="onlinefirst">在线客服一：QQ{$vo.q}</p>
+							<p class="onlinesecend">在线客服二：QQ{$vo.qq}</p>
+							<p class="telphone">联系电话：{$vo.tel}</p>
+							<p class="email">邮箱：{$vo.email}</p>
+						</div>
+                        </volist>
+
+
+
+					</div>
+					
+                                                                                        
+
+										
+					<!--内容的右侧-->
+					<div class="content_body_right">
+						<div class="right_title">
+							<span class="titlename">产品中心</span>
+                            <volist name="list" id="vo"><if condition="$vo.pid eq 8"><if condition="$vo.id eq $cate_id">
+                           <span class="current_location">当前位置>产品中心>{$vo.name}</span></if></if></volist> 
+                             
+                            <span class="clear_float"></span>
+						</div>
+						<div class="product_center">
+							<div class="product_center_show_top"><foreach name="data" item="v">
+							<form method="post" action="__APP__/User/zhu">
+							<input name="id" type="hidden"  value="{$v.id}"/>
+							<input name="price" type="hidden" value="{$v.price}" />
+							<input name="thumb_path" type="hidden" value="{$v.thumb_path}" />
+							<input
+													type="hidden" class="input_quantity" name="num" value="1" id="num" />
+
+                                                <input name="price_c" type="hidden"  value="{$v.price_c}"/>
+								<div class="product_center_show"  style="width:240px;">
+									<a  href="__APP__/Product/center/id/{$v.id}/cate/{$cate_id}"><img style=" width:240px; height:330px;"src="<if condition="($v.image_path eq '')">__ROOT__/public/uploads/timg.jpg
+									<else />__ROOT__/{$v.image_path}
+									</if>" /></a> 
+                                    <a href="__APP__/Product/center/id/{$v.id}/cate/{$cate_id}"><p class="cloth_type">{$v.name}</p></a>
+									<p class="cloth_info">
+										<span class="yuan">￥</span><span class="cloth_price">{$v.price}</span> <input type="submit"            style="background:#FFCC00; color:#FFFFFF; width:100px; height:30px;" value="加入购物车" class="submit2" />
+									</p>
+								</div></form></foreach>
+								
+								
+								<div class="clear_float"></div>
+							</div>
+
+							<form action="" method="post">
+								<div class="paging">
+									  {$page}
+              
+								</div>
+							</form>
+						</div>
+
+
+
+
+
+
+
+					</div>
+
+					<div class="clear_float"></div>
+
+
+
+
+
+
+
+
+
+
+
+				</div>
+			</div>
+
+
+		</div>
+
+
+	</div>

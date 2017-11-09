@@ -1,0 +1,36 @@
+
+        <div class="templatemo-content-container">
+          <div class="templatemo-content-widget white-bg">
+            <h2 class="margin-bottom-10">Preferences</h2>
+            <p>Here goes another form and form controls.</p>
+            <form action="" class="templatemo-login-form" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="id" value="{$res.id}"/>
+              <div class="row form-group">
+                         
+              </div>
+              <div class="row form-group">
+                <div class="col-lg-6 col-md-6 form-group">                  
+                    <label for="inputNewPassword">Product Name</label>
+                    <input type="text" placeholder="Product Name" value="{$res.name}" name="name" required="required" class="form-control" id="inputNewPassword">                   
+                </div>
+               
+              </div>
+           
+           
+              <div class="row form-group">
+                <div class="col-lg-12 form-group">                   
+                    <label class="control-label" for="inputNote">Product Content</label>
+                    <textarea class="form-control" name="content"  required="required"   placeholder="Product Content" id="inputNote" rows="3">{$res.content}</textarea>
+                </div>
+              </div>
+             
+              
+     
+              <div class="form-group text-right">
+                
+                <input  type="submit" style="width:105px;" value="Submit"class="templatemo-white-button"/>
+                <input  type="reset" style="width:105px;" value="Reset"class="templatemo-white-button"/>
+              </div>                           
+            </form>
+          </div>
+         

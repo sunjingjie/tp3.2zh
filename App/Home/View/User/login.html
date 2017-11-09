@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<base  href="__ROOT__/home/Common/" />
+
+<link rel="stylesheet" type="text/css" href="css/base_ducvy.css"> 
+<script type="text/javascript" src="js/jQuery.1.8.2.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+
+<title>用户登录</title>
+</head>
+
+<body>
+	<div class="content">
+    	<div class="login_content">
+            <div class="login_regist_background">
+                 <div class="login_background">
+                 </div>
+                 <div class="formlist">	
+                    <span class="viplogin">新用户登录</span>
+                    <form method="post" action="">
+                        <input class="uname" style="margin-top:20px;" name="username" type="text"  <if condition="($Think.cookie.usernameh neq '')"> value="{$Think.cookie.usernameh}"</if>></input>
+                        <input class="upassword" style="margin-top:20px;"  name="password" type="password"
+                        <if condition="($Think.cookie.passwordh neq '')"> value="{$Think.cookie.passwordh}"</if>></input>
+                         <div class="form-group" style="float:left; margin-left:100px; margin-top:10px;   font-size:25px"> <span style=" float:left; display:block; height:30px; line-height:30px; ">验证码：</span><div style="float:right" class="input-group" ><input class="form-control" style="width:100px; line-height:30px; height:30px;" type="code" name="code" required /> 
+<!--              <img src="{:U('Admin/User/verify','','')}" id="code"/>
+-->              &nbsp;&nbsp;<img src="__APP__/Login/verify/" id="code"  style=" height:30px; padding-top:5px;float:right" onClick="this.src='__APP__/Login/verify/'+Math.random(0,1)" />
+
+ 
+  
+  
+  	</div>	
+	        	</div>
+                
+				       
+				    	
+                        <div style="float:left" class="link"> <input  type="checkbox"  id="c1" name="cookie" value="1" 
+				       <if condition="($Think.cookie.cooh eq 1)"> checked="checked"</if>/>
+						<label for="c1"><span></span>记住密码</label><a href="">忘记密码？</a><a href="__APP__/Login/zhuce">免费注册</a><a class="clear_float"></a></div>
+                        <input class="submit" type="submit" value="登               陆"></input>
+                        <div class="otherwaylogin"><span>其他登录方式：</span><a href="" class="weixin">微信登录</a><a href="" class="QQ">腾讯登录</a><span class="clear_float"></span></div>
+                    </form>
+                 </div>
+                 
+                 <span class="copyright">Copyright 2008-2015 vip.com，All Rights Reserved ICP证：粤 B2-20080329</span>
+            </div>
+		</div>
+    </div>
+
+
+
+
+	
+
+
+
+
+</body>
+
+
+</html>

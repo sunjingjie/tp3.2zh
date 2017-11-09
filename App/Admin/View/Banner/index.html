@@ -1,0 +1,34 @@
+ <div class="templatemo-content-container"><h3><a href="__APP__/Banner/add">轮播添加</a></h3>
+          <div class="templatemo-content-widget no-padding">
+            <div class="panel panel-default table-responsive">
+              <table class="table table-striped table-bordered templatemo-user-table">
+                <thead>
+                  <tr>
+                    <td><a href="" class="white-text templatemo-sort-by">轮播ID <span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">轮播链接 <span class="caret"></span></a></td>
+                    <td><a href="" class="white-text templatemo-sort-by">轮播图片 <span class="caret"></span></a></td>
+                    <td>Edit</td>
+                    <td>Delete</td>
+                  </tr>
+                </thead>
+                <tbody><foreach name="data" item="v">
+                  <tr>
+                    <td>{$v.id}</td>
+                    <td>{$v.url}</td>
+					<td><img src="<if condition="($v.thumb_path eq '')">__ROOT__/public/uploads/timg.jpg
+									<else />__ROOT__/{$v.thumb_path}
+									</if>" width="30" height="30"/></td>
+                    <td><a href="__APP__/Banner/update/id/{$v.id}" class="templatemo-edit-btn">Edit</a></td>
+                    <td><a href="__APP__/Banner/delete/id/{$v.id}" class="templatemo-edit-btn">Delete</a></td>
+                  </tr></foreach>
+                 
+                </tbody>
+              </table>    
+            </div>                          
+          </div>  
+          <div class="pagination-wrap">
+            <ul class="pagination">
+              {$page}
+              
+            </ul>
+          </div>                  

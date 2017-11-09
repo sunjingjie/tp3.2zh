@@ -1,0 +1,132 @@
+<link rel="stylesheet" type="text/css" href="css/base_ducvy.css" />
+<script type="text/javascript" src="js/jQuery.1.8.2.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<title>品牌介绍详情页</title>
+<title>新闻中心</title>
+	<!--banner_ad 横幅轮播图-->
+	<div class="banner_ad">
+
+		<div class="banner" id="banner">
+			<div class="pages" data-scro="list">
+				<ul>
+					<volist name="banner" id="vo">
+					<li class="item" style="left: 0px;"><img style=" width:1423px; height:352px;"src="<if condition="($vo.image_path eq '')">__ROOT__/public/uploads/timg.jpg
+									<else />__ROOT__/{$vo.image_path}
+									</if>" /></li></volist>
+				</ul>
+			</div>
+
+			<div class="controler" data-scro="controler">
+				<b class="down"></b> <b></b> <b></b>
+			</div>
+		</div>
+
+
+	</div>
+
+
+	<!--页面内容-->
+	<div class="content">
+		<!--内容背景为第一种的时候 -->
+		<div class="content_type_one">
+
+			<!--为内容里面的内容-->
+			<div class="content_body">
+				<div class="background_orange"></div>
+				<div class="background_gray"></div>
+				<div class="kongzhi">
+					<!--侧导航-->
+					<div class="sidebar">
+						<div class="sidebar_top">
+
+
+							<div class="sidebar_title">
+								<p class="chinese">新闻中心</p>
+								<p class="english">Brand introduction</p>
+							</div>
+
+
+							<div class="sidebar_list">
+
+								<ul>
+									<volist name="list" id="vo">
+									<if condition="$vo.pid eq 7"><a href="__APP__/News/cate/cate/{$vo.id}" <if condition="$vo.id eq $cate_id"> class="list_a_inthis"</if> ><li <if condition="$vo.id eq $cate_id"> class="list_inthis" </if> >{$vo.name}</li></a></if></volist>
+								</ul>
+
+							</div>
+
+							<div class="sidebar_title sidebar_title_margin">
+								<p class="chinese">联系我们</p>
+								<p class="english">contact us</p>
+							</div>
+
+
+
+						</div>
+
+
+						
+						 
+						<div class="sidebar_bottom">
+							<p class="onlinefirst">在线客服一：QQ{$about.q}</p>
+							<p class="onlinesecend">在线客服二：QQ{$about.qq}</p>
+							<p class="telphone">联系电话：{$about.tel}</p>
+							<p class="email">邮箱：{$about.email}</p>
+						</div>
+
+
+
+					</div>
+
+					<!--内容的右侧-->
+					<div class="content_body_right">
+						<div class="right_title">
+							<span class="titlename">新闻中心</span> <span
+								class="current_location">当前位置>新闻中心>详情页</span> <span
+								class="clear_float"></span>
+						</div>
+                   	
+					<div class="newscontent_details">
+							<div class="details_title">{$data.title}</div>
+							<div class="details_info">
+								<p class="info">作者：{$data.author}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;时间：{:date('Y-m-d',$data['time'])}
+									</p>
+								<p class="guide">文章导读</p>
+							</div>
+							<div class="details_pick">{$data.tedian}</div>
+							<div class="details_img">
+								<img src="<if condition="($data.image_path eq '')">__ROOT__/public/uploads/timg.jpg
+									<else />__ROOT__/{$data.image_path}
+									</if>" width="226" height="283"/>
+							</div>
+							<div class="details_text">
+								{$data.content}</div>
+						</div>
+
+
+						上一条：<if condition="$next eq '' "> 
+没有上一条
+                        <else />
+<a href="__APP__/News/center/id/{$next.id}/cate/{$cate_id}">{$next.title}</a>;</if>
+                        下一条：<if condition="$prev eq '' "> 没有下一条
+                        <else /><a href="__APP__/News/center/id/{$prev.id}/cate/{$cate_id}">{$prev.title}</a>;</if>
+
+
+						<!--底部分页-->
+						
+
+
+					</div>
+
+					<div class="clear_float"></div>
+
+
+
+				</div>
+			</div>
+
+
+		</div>
+
+
+	</div>

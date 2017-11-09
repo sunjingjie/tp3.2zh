@@ -1,0 +1,129 @@
+<link rel="stylesheet" type="text/css" href="css/base_ducvy.css" />
+<script type="text/javascript" src="js/jQuery.1.8.2.min.js"></script>
+<script type="text/javascript" src="js/script.js"></script>
+<title>品牌介绍</title>
+
+	<!--banner_ad 横幅轮播图-->
+	<div class="banner_ad">
+
+		<div class="banner" id="banner">
+			<div class="pages" data-scro="list">
+				<ul>
+					<volist name="banner" id="vo">
+					<li class="item" style="left: 0px;"><img style=" width:1423px; height:352px;"src="<if condition="($vo.image_path eq '')">__ROOT__/public/uploads/timg.jpg
+									<else />__ROOT__/{$vo.image_path}
+									</if>" /></li>
+					</volist>
+				</ul>
+			</div>
+
+			<div class="controler" data-scro="controler">
+				<b class="down"></b> <b></b> <b></b>
+			</div>
+		</div>
+
+
+	</div>
+
+
+	<!--页面内容-->
+	<div class="content">
+		<!--内容背景为第一种的时候 -->
+		<div class="content_type_one">
+
+			<!--为内容里面的内容-->
+			<div class="content_body">
+				<div class="background_orange"></div>
+				<div class="background_gray"></div>
+				<!--侧导航-->
+				<div class="kongzhi">
+
+					<div class="sidebar">
+						<div class="sidebar_top">
+
+
+							<div class="sidebar_title">
+								<p class="chinese">品牌介绍</p>
+								<p class="english">Brand introduction</p>
+							</div>
+
+
+							<div class="sidebar_list">
+
+								<ul><volist name="list" id="vo">
+									<if condition="$vo.pid eq 6"><a href="__APP__/Company/cate/cate/{$vo.id}" <if condition="$vo.id eq $cate_id"> class="list_a_inthis"</if> ><li <if condition="$vo.id eq $cate_id"> class="list_inthis" </if> >{$vo.name}</li></a></if></volist>
+									
+								</ul>
+
+							</div>
+
+							<div class="sidebar_title sidebar_title_margin">
+								<p class="chinese">联系我们</p>
+								<p class="english">contact us</p>
+							</div>
+
+
+
+						</div>
+
+                        <volist name="about" id="vo">
+						<div class="sidebar_bottom">
+							<p class="onlinefirst">在线客服一：QQ{$vo.q}</p>
+							<p class="onlinesecend">在线客服二：QQ{$vo.qq}</p>
+							<p class="telphone">联系电话：{$vo.tel}</p>
+							<p class="email">邮箱：{$vo.email}</p>
+						</div>
+                        </volist>
+
+
+
+					</div>
+
+					<!--内容的右侧-->
+					<div class="content_body_right">
+						<div class="right_title">
+							<span class="titlename">品牌介绍</span> 
+                            <volist name="list" id="vo">
+                            <if condition="$vo.pid eq 6">
+                            <if condition="$vo.id eq $cate_id">
+                             <span class="current_location">当前位置>品牌介绍>{$vo.name}</span>  
+                            </if>
+                            </if></volist>
+                    
+								 <span class="clear_float"></span>
+						</div>
+
+<foreach name="data" item="v">
+						<div class="introduces">
+							<div class="introduces_img">
+								<img style="width:314px; height:254px;" src="<if condition="($v.image_path eq '')">__ROOT__/public/uploads/timg.jpg
+									<else />__ROOT__/{$v.image_path}
+									</if>"  title="news_pictrue" alt="加载中..."/>	
+							</div>
+							<p class="introduces_text">{$v.content}</p>
+							<div class="clear_float"></div>
+						</div></foreach>
+
+						
+
+
+					</div>
+					<div class="clear_float"></div>
+
+
+
+
+
+
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+
+
+
+
+	
